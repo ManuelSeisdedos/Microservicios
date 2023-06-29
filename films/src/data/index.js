@@ -8,7 +8,6 @@ const create = async () => {
     throw Error ("Hubo un error al crear el personaje")
 }
 
-
 export default  {
     list,
     create
