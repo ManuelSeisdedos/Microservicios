@@ -10,4 +10,5 @@ server.use(morgan('dev'))
 server.use(express.json())
 server.use('/', router)
 
+//Prueba
 export default server
