@@ -1,7 +1,8 @@
 import getPlanets from "./getPlanets.js";
 import createPlanets from "./createPlanets.js";
+import catchAsync from "../utils/catchAsync.js";
 
 export default  {
-    getPlanets,
-    createPlanets
+    getPlanets: catchAsync(getPlanets),
+    createPlanets: catchAsync(createPlanets)
 }
