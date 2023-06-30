@@ -1,6 +1,8 @@
+import utils from '../utils/index.js'
 import Films from '../data/index.js'
 
 export default  async (req,res) => {
-    const characters = await Films.list()
-    res.status(200).json(characters)
+    const films = await Films.list()
+    console.log(utils)
+    utils.response(res,200, films)
 }
