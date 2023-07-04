@@ -21,5 +21,5 @@ const characterSchema = new Schema({
         ref: "Film"}] // REFERENCIA A PELICULAS
 })
 
-
-export default characterSchema;
+const Character = mongoose.model('Characters', characterSchema)
+export default Character;
