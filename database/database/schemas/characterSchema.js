@@ -15,11 +15,11 @@ const characterSchema = new Schema({
     homeworld: {
         type: String,
         ref: "Planet"
-    }, // REFERENCIA A PLANETA
+    }, 
     films: [{
         type: String,
-        ref: "Film"}] // REFERENCIA A PELICULAS
+        ref: "Film"}] 
 })
 
-const Character = mongoose.model('Characters', characterSchema)
+const Character = mongoose.model('Character', characterSchema)
 export default Character;
