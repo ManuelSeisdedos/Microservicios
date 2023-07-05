@@ -3,7 +3,6 @@ import mongoose from "mongoose";
 const Schema = mongoose.Schema
 
 const planetSchema = new Schema ({
-    
     _id: String,
     name: String,
     rotation_period: String,
@@ -21,6 +20,24 @@ const planetSchema = new Schema ({
         ref:"Film"
     }] 
 })
+
+planetSchema.statics.list = async function () {
+    return await this.find()
+        .populate("residents",["_ids", "name"])
+        .populate("films", ["_id", "title"])
+}
+
+
+planetSchema.statics.get = async function (_id) {
+    return await this.findById(_id)
+        .populate('residents',["_id", "name"])
+        .populate('films', ["_id", "title"])
+}
+
+planetSchema.statics.insert = async function (planet) {
+    await this.create(planet)
+    return planet
+}
 
 const Planet = mongoose.model('Planet',planetSchema)
 

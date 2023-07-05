@@ -5,10 +5,17 @@ import Film from "./schemas/filmSchema.js";
 import Planet from "./schemas/planetsSchema.js";
 
 
+
 const conn = mongoose.connect(
     mongouri.MONGO_URL
 );
 
-
-
-Film.find().then((res) => console.log(res[0]))
+Planet.insert({
+    _id: "300",
+    name:"Mamulonworld"
+}).then((res) => {console.log(res);})
+export default {
+    Characters,
+    Film,
+    Planet
+}
