@@ -10,10 +10,7 @@ const conn = mongoose.connect(
     mongouri.MONGO_URL
 );
 
-Planet.insert({
-    _id: "300",
-    name:"Mamulonworld"
-}).then((res) => {console.log(res);})
+
 export default {
     Characters,
     Film,
