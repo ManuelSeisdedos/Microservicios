@@ -1,8 +1,8 @@
 import mongoose from "mongoose";
 import mongouri from '../config/envs.js'
 import Characters from "./schemas/characterSchema.js"
-import Film from "./schemas/filmSchema.js";
-import Planet from "./schemas/planetsSchema.js";
+import Films from "./schemas/filmSchema.js";
+import Planets from "./schemas/planetsSchema.js";
 
 
 
@@ -13,6 +13,6 @@ const conn = mongoose.connect(
 
 export default {
     Characters,
-    Film,
-    Planet
+    Films,
+    Planets
 }
