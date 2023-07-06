@@ -8,7 +8,7 @@ const server = express();
 
 server.use(morgan('dev'))
 server.use(express.json())
-console.log("pasa por aca")
+
 server.use('/characters', router)
 
 server.use("*", (req,res) => {
