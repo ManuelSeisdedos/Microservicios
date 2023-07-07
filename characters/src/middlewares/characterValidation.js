@@ -1,10 +1,12 @@
 import ClientError from "../utils/errors/index.js"
 
 export default (req,res,next) => {
-    const {name} = req.body
+    
+    console.log(req)
+    const name = req.body.name
+
     if (name) {
-        
-        return next()
+        next()
     } else { 
        throw new ClientError("Error en el nombre.", 401)
     }

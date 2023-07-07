@@ -2,28 +2,28 @@
 
 import express from 'express'
 import morgan from 'morgan'
-import proxy from 'http-proxy-middleware'
+import proxy, { fixRequestBody } from 'http-proxy-middleware'
 const server = express()
-const prueba = function () {
-    console.log("proxy")
-}
+
 
 server.use(morgan('dev'))
 server.use(express.json())
 
 server.use("/characters", proxy.createProxyMiddleware({    
-    target: "http://characters:8001",
+    target: 'http://characters:8001',
     changeOrigin: true,
-    ws: true
+    onProxyReq: fixRequestBody
 }))
 
-server.use("/films",prueba, proxy.createProxyMiddleware({
+server.use("/films", proxy.createProxyMiddleware({
     target: "http://films:8002",
-    changeOrigin: true
+    changeOrigin: true,
+    onProxyReq: fixRequestBody
 }))
 server.use("/planets", proxy.createProxyMiddleware({
     target: "http://planets:8003",
-    changeOrigin: true
+    changeOrigin: true,
+    onProxyReq: fixRequestBody
 }))
 
 server.use("*", (req,res) => {
