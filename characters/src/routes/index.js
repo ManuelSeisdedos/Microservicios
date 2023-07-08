@@ -6,8 +6,9 @@ import middlewares from '../middlewares/index.js';
 
 const router = Router();
 
-router.post('/',middlewares.characterValidation, controllers.createCharacter)
 router.get('/', controllers.getCharacters)
+router.get('/:character', controllers.getOneCharacter)
+router.post('/',middlewares.characterValidation, controllers.createCharacter)
 
 
 
