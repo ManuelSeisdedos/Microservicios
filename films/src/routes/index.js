@@ -6,6 +6,7 @@ import middlewares from '../middlewares/index.js';
 const router = Router();
 
 router.get('/', controllers.getFilms)
+router.get('/:film', controllers.getOneFilm)
 router.post('/', middlewares.filmValidator, controllers.createFilms)
 
 
