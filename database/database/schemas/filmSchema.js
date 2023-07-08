@@ -4,7 +4,10 @@ const Schema = mongoose.Schema
 
 const filmSchema = new Schema(  {
     _id: String,
-    title: String,
+    title: {
+        type: String,
+        required: true
+    },
     opening_crawl: String,
     director: String,
     producer: String,

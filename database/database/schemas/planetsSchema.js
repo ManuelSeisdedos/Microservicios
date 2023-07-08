@@ -4,7 +4,10 @@ const Schema = mongoose.Schema
 
 const planetSchema = new Schema ({
     _id: String,
-    name: String,
+    name: {
+        type: String,
+        required: true
+    },
     rotation_period: String,
     orbital_period: String,
     diameter: String,

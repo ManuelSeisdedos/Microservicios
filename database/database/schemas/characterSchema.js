@@ -4,13 +4,19 @@ const Schema = mongoose.Schema
 
 const characterSchema = new Schema({
     _id: String,
-    name: String,
+    name: {
+        type: String,
+        required: true
+    },
     height: String,
     mass: String,
     hair_color: String,
     skin_color: String,
     eye_color: String,
-    birth_year: String,
+    birth_year: {
+        type: String,
+        default: Date.toString()
+    },
     gender: String,
     homeworld: {
         type: String,
