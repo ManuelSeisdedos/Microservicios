@@ -3,7 +3,10 @@ import mongoose from "mongoose";
 const Schema = mongoose.Schema
 
 const planetSchema = new Schema ({
-    _id: String,
+    _id: {
+        type:String,
+        required: true
+    },
     name: {
         type: String,
         required: true
