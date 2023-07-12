@@ -1,13 +1,13 @@
 import ClientError from "../utils/errors/index.js"
 
-export default (req,res,next) => {
-    
-    console.log(req)
+export default (req,res,next,validator) => {
     const name = req.body.name
-
+    console.log(name)
     if (name) {
-        next()
+        validator.name = name
+        return validator
     } else { 
-       throw new ClientError("Error en el nombre.", 401)
+       validator.name = null
+       return validator
     }
 }

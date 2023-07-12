@@ -1,14 +1,12 @@
 import ClientError from "../utils/errors/index.js"
-import axios from 'axios'
-export default async (req,res,next,validator) => {
+
+export default async (req,res,next) => {
     const {homeworld} = req.body
     const value = await axios.get(`http://localhost:8004/Planets/${homeworld}`)
-    
+    // Terminar la busqueda por nombre
     if (value.data._id) {
-        validator.homeworld = homeworld
-        return validator
+        return next()
     } else { 
-       validator.homeworld = null
-       return validator
+       throw new ClientError("Error en el planeta.", 401)
     }
 }

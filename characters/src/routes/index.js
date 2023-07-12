@@ -8,7 +8,7 @@ const router = Router();
 
 router.get('/', controllers.getCharacters)
 router.get('/:character', controllers.getOneCharacter)
-router.post('/',middlewares.characterValidation, controllers.createCharacter)
+router.post('/',middlewares.completeValidator, controllers.createCharacter)
 
 
 
