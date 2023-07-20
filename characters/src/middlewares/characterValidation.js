@@ -1,6 +1,4 @@
-import ClientError from "../utils/errors/index.js"
-
-export default (req,res,next,validator) => {
+export default (req,res,next) => {
     
     if (!req.body.hasOwnProperty("name")) {
         return null
