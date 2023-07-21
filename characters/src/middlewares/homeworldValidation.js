@@ -13,7 +13,6 @@ export default async (req,res,next) => {
         return null
     } else {
         if (typeof homeworld === "string" && homeworld.length > 1) {
-            console.log("HOMEROWRLD", homeworld)
             return homeworld
         }
     }

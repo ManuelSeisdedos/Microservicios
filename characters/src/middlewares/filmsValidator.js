@@ -1,20 +1,19 @@
-import ClientError from "../utils/errors/index.js"
 import axios from 'axios'
 
 export default async (req,res,next,validator) => {
-    const {films} = req.body
-    let promesas = []
-    for (let index = 0; index < films.length; index++) {
-    promesas.push(axios.get(`http://localhost:8004/Films/${index}`))
+    const {title} = req.body
+    console.log(req.body)
+    const value = await axios.get("http://localhost:8004/Films")
+    const peliculas = []
+    for (let index = 0; index < title.length; index++) {
+        peliculas.push(value.data[index].title)
     }
-    const value = await Promise.all(promesas)
-    for (let index = 0; index < array.length; index++) {
-        if(value.data[i]) {
-            validator.films = films
-        } else {
-            throw new ClientError("Error en las peliculas.", 401)
+    if (!req.body.hasOwnProperty("title")) {
+        return null
+    } else {
+        if (typeof title === "object" ) {
+            return title
         }
-        
     }
-    return validator
+
 }
