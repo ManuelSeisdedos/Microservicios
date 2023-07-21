@@ -1,9 +1,19 @@
+import axios from "axios"
+
 export default async (req,res,next) => {
     const {homeworld} = req.body
-    if (!req.body.hasOwnProperty("homeworld")) {
+    
+    const value = await axios.get("http://localhost:8004/Planets")
+    const element = []
+    for (let index = 0; index < value.data.length; index++) {
+        element.push( value.data[index].name);
+    }
+    console.log(!element.includes(homeworld))
+    if (!req.body.hasOwnProperty("homeworld") || !element.includes(homeworld)) {
         return null
     } else {
-        if (typeof validator.homeworld === "string" && validator.name.length > 1) {
+        if (typeof homeworld === "string" && homeworld.length > 1) {
+            console.log("HOMEROWRLD", homeworld)
             return homeworld
         }
     }
